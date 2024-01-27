@@ -1,19 +1,20 @@
-#include stdio.h
+#include <stdio.h>
+#include <dirent.h>
 
-
-#include globals.h
+#include "globals.h"
+#include "functions.h"
 
 int main(void)
 {
-    // File Access Maybe via C
+    // Listing Filesname & Directory(subdirectories & its files included)
+    listFiles(".");
 
     // make sure that it is a raw-file -> (other files)
 
 
     // Create an Array of Strings
-    char *filenames[filecount]
-    // Count Filecount - By checking the Headers 
-    // 
+    char *filenames[filecount];
+    // Count Filecount 
 
 
     return 0;
