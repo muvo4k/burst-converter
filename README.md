@@ -1,4 +1,4 @@
-# BC-Bracketing Organizer:
+# BO-Bracketing Organizer:
 
 Sorts your bracketing and burst shots by timestamps into folders
 
