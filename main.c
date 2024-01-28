@@ -8,13 +8,13 @@ int main(void)
 {
     // Listing Filesname & Directory(subdirectories & its files included)
     listFiles(".");
-
+    countFiles(".");
     // make sure that it is a raw-file -> (other files)
 
 
 
     // check filecount
-    printf("Total files in directory: %d\n", countFiles(".", &filecount));
+    printf("Total files in directory: %d\n", filecount);
 
 
     // Create an Array of Strings
