@@ -2,11 +2,11 @@
 
 ## Status
 
-1. Contains simple function which list a directories & files (also subdirectories with subsequent files)
+1. Contains simple function which list a directories & files (also subdirectories with subsequent files without git) aswell count function which counts all files it encounter
 
 ## Next Steps
 
-- count files
+- decide wether filecount is a seperate function, returns a integer or filecount is within the listFiles function 
 - sort by filetype
 - fill array of string
 

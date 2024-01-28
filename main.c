@@ -12,8 +12,13 @@ int main(void)
     // make sure that it is a raw-file -> (other files)
 
 
+
+    // check filecount
+    printf("Total files in directory: %d\n", countFiles(".", &filecount));
+
+
     // Create an Array of Strings
-    char *filenames[filecount];
+/*     char *filenames[filecount]; */
     // Count Filecount 
 
 
