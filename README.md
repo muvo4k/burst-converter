@@ -1,15 +1,31 @@
-# BC-Bracketing Converter:
+# BC-Bracketing Organizer:
+
+Sorts your bracketing and burst shots by timestamps into folders
 
 ## Status
 
-1. Contains simple function which list a directories & files (also subdirectories with subsequent files without git) aswell count function which counts all files it encounter
+1. Contains simple function which list all directories & files (also subdirectories with subsequent files without git) aswell count function which counts all files it encounters
 
 ## Next Steps
 
-- decide wether filecount is a seperate function, returns a integer or filecount is within the listFiles function 
+- decide wether filecount is a seperate function, returns a integer or filecount is within the listFiles  
 - sort by filetype
 - fill array of string
 
+### Key characteristic of bracketing & burst shots
+
+- continous naming with numbers
+- date & timestamp
+    - standalone as well as in combination with pattern of repeating iso or shutter values 
+    - a fixed amount of burst shots, panasonic shots
+#### problem which can occur a their key characteristic
+
+Problem 1:
+- false taken picture by pressing the shutter to short in between to soon
+Solution 2: 
+- timestamp checking
+- seperation of too short shots
+- preselection modus of input material: burst modus, bracketing modus 
 ## Project Timeline
 1. Create Basic C Program which  **check headings** and **copies files** to new **create Folder**(yymmdd-bc-sorted)created by the first file and timestamp(exif data) which has each a NestedFolder() in it with.
 
