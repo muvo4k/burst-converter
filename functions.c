@@ -3,7 +3,9 @@
 #include <dirent.h>
 #include <errno.h> // Include errno header for error handling
 
-int countFiles(const char* dirname, int filecount)
+#include "globals.h"
+
+void countFiles(const char* dirname)
 {
     // Open a Directory
     DIR *directory = opendir(dirname);
@@ -28,7 +30,7 @@ int countFiles(const char* dirname, int filecount)
     }
     //Close the filepointer
     closedir(directory);
-    return filecount;
+    return;
 }
 
 void listFiles(const char* dirname)
@@ -50,10 +52,8 @@ void listFiles(const char* dirname)
         printf("%hhd %s/%s\n", entity->d_type, dirname,entity->d_name);
         if (entity->d_type == DT_DIR && strcmp(entity->d_name, ".") != 0 && strcmp(entity->d_name, ".." ) != 0 && strcmp(entity->d_name, ".git") != 0) // conditional comparing . and .. so that there i no indefinetly looping between directories
         {
-            char path[100] = { 0 };
-            strcat(path, dirname);
-            strcat(path, "/" );
-            strcat(path, entity->d_name);
+            char path[1024] = { 0 };
+            snprintf(path, sizeof(path), "%s/%s", dirname, entity->d_name); // Construct full path
             listFiles(path);
         }
         entity = readdir(directory);
