@@ -1,11 +1,11 @@
-CC = gcc
-CFLAGS = -g -Wall -Wextra
+CXX = g++
+CXXFLAGS = -g -Wall -Wextra
 
 # List of source files
-SRCS = main.c globals.c functions.c
+SRCS_CPP = main.cpp globals.cpp functions.cpp
 
 # Generate object file names from source files
-OBJS = $(SRCS:.c=.o)
+OBJS_CPP = $(SRCS_CPP:.cpp=.o)
 
 # Name of the final executable
 TARGET = program
@@ -19,17 +19,11 @@ all: rebuild
 
 rebuild: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
+$(TARGET): $(OBJS_CPP)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -o $@
 
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
-
-$(OBJS): touch
-
-.PHONY: touch
-touch:
-	touch $(SRCS)
+	rm -f $(OBJS_CPP) $(TARGET)
