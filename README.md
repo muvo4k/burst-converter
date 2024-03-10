@@ -52,9 +52,8 @@ Solution 2:
 3. Create GUI
 4. Create Webamssembly Version
 
-
-Notes for Repomerging:
 - create new directory archive
 - moved makefile to new Location: archive
 - created new Makefile to incooperate c++ and c files
 - sketch a c outline to ask for user input(change to c++)
+======
