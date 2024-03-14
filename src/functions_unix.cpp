@@ -55,7 +55,7 @@ void listFilesUnix(const char* dirname)
         {
             char path[1024] = { 0 };
             snprintf(path, sizeof(path), "%s/%s", dirname, entity->d_name); // Construct full path
-            listFiles(path);
+            listFilesUnix(path);
         }
         entity = readdir(directory);
     }

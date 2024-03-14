@@ -5,7 +5,7 @@ Sorts your burst shots by timestamps into folders
 ## Status
 
 1. Contains a function which list all directories & files (also subdirectories with subsequent files without git) aswell count function which counts all files it encounters
-1.1. Linux dirent.h, Windows FOLLOWS
+1.1. Linux dirent.h, Windows windows.h
 2. Program chooses directory based on the directory during execution:
     2.1 Conditional within the program checks if user is the right input directory
         if not: program exits ; if yes: program resumes
@@ -14,25 +14,22 @@ Sorts your burst shots by timestamps into folders
             - based on stdin 
             - same approach but if anwser is no change use a two created functions for choosing & changing to the right input directory maybe based on selection
 
-3. Program uses the std::cin.fail() function with boolean which continues while the boolean is false
-    cin.fail() returns true if the last cin command failed
-
 ## Next Steps
 
-Done:
-- decided that filecount is a seperate function even if this means repetitive code for readability
-
 Upcoming:
-- change the main file to cpp file handling stays in c for now
-- ask for the input location
-
 - fill array of string
 - sort by filetypes
+- first check for rw2 indicators
+- compare every 30 image titles in folder which is getting scanned to the timestamp (for seconds) to the time
+
+- ask for the input location
+
 
 ### Key characteristic of bracketing & burst shots
 
 - continous naming with numbers
-- date & timestamp
+- date & timestamp(only for bracketing - we didnt found a way to to track increments of seconds within the metadata)
+    - but there should be 24 within of 1 or a another second ! <---------------------------------------------------------------
     - standalone as well as in combination with pattern of repeating iso or shutter values 
     - a fixed amount of burst shots, panasonic shots
 #### problem which can occur a their key characteristic

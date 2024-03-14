@@ -1,10 +1,10 @@
 // CPP Libraries
 #include <iostream>
 #include <string>
-
+#include <vector>
+#include <windows.h>
 #include <limits> // for numeric_limits
 #include <ios>    // for streamsize
-
 
 #include "globals.h"
 #include "functions.h"
@@ -13,29 +13,23 @@ int main(void)
 {
     // Storage
     std::string answer;
-
-    // Ask the User for File Location
-    std::cout << "Are you in the Directory were the File is stored. Anwser with 'yes or no': ";
-    
-    // check for valid input
     bool valid = false;
 
     while (!valid) 
     {
+        std::cout << "Are you in the right directory? ";
         std::cout << "Please answer with yes or no: ";
         std::getline(std::cin, answer);
 
-        if (std::cin.fail()) {
+        if (std::cin.fail()) 
+        {
             std::cout << "Error reading input. Please try again." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        else if (answer != "yes" && answer != "no") {
+        else if (answer != "yes" && answer != "no") 
+        {
             std::cout << "Invalid input. Please answer with yes or no." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        else 
+        else if (answer == "yes" || answer == "no")
         {
             valid = true;
         }
@@ -47,13 +41,42 @@ int main(void)
         return EXIT_SUCCESS;
     }
 
-    // Program executes here !!!
+    // MAIN LOGIC HERE
     
 
     // Listing Filesname & Directory(subdirectories & its files included)
+    /*
     listFilesWin(".");
     countFilesWin(".");
-    // make sure that it is a raw-file -> (other files)
+    listFilesUnix(".");
+    countFilesUnix(".");
+    */
+
+
+    const char* dirname = "."; // your_directory_path_here "directory_path"
+    std::vector<std::string> filenames;
+    std::vector<HANDLE> filePointers;
+    std::vector<FILETIME> timestamps;
+
+    filePointers = getFilePointers(dirname, filenames, timestamps);
+
+    // Now you have an array of file pointers, an array of filenames, and an array of timestamps
+    // You can use these to read binary data from each file and access their timestamps
+
+    // Don't forget to close the file handles when you're done with them
+
+    // TEST PRINT
+
+    std::cout << "Filename Vector elements: ";
+    for (int i = 0; i < filenames.size(); ++i) {
+        std::cout << filenames[i] << ", ";
+    }
+    std::cout << std::endl;
+
+    for (HANDLE hFile : filePointers) 
+    {
+        CloseHandle(hFile);
+    }
 
 
 
